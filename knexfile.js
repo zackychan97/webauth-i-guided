@@ -6,6 +6,7 @@ module.exports = {
       filename: './database/auth.db3',
     },
     pool: {
+      // SQLite will NOT enforce Foreign Keys by default
       afterCreate: (conn, done) => {
         conn.run('PRAGMA foreign_keys = ON', done);
       },
